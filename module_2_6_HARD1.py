@@ -1,11 +1,29 @@
+def res(number):
+        result = ""
+        for i in range(1, number + 1):
+                for j in range(i + 1, number + 1):
+                        if number % (i + j) == 0:
+                                result += str(i) + str(j)
+        return result
+# number = int(input("Введите число от 3 до 20: "))
+check = ["12",
+        "13",
+        "1423",
+        "121524",
+        "162534",
+        "13172635",
+        "1218273645",
+        "141923283746",
+        "11029384756",
+        "12131511124210394857",
+        "112211310495867",
+        "1611325212343114105968",
+        "1214114232133124115106978",
+        "1317115262143531341251161079",
+        "11621531441351261171089",
+        "12151811724272163631545414513612711810",
+        "118217316415514613712811910",
+        "13141911923282183731746416515614713812911"]
 
-number = int(input("Введите число от 3 до 20: "))
-pairs = [0] * 10000
-result = ""
-for i in range(1, number+1):
-        for j in range(1, number+1):
-                if number % (i + j) == 0 and pairs[int(str(i) + str(j))] == 0 and pairs[
-                        int(str(j) + str(i))] == 0  and i != j:
-                        result += str(i) + str(j)
-                        pairs[int(str(i) + str(j))] += 1
-print(result)
+for number in range(3, 21):
+        print(res(number), check[number - 3] == res(number))
